@@ -24,6 +24,7 @@ cc_binary {
     ],
     required: [
         "thermal_symlinks_mediatek",
+        "pixelatoms-cpp",
     ],
     shared_libs: [
         "libbase",

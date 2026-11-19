@@ -7,6 +7,7 @@ on enable-thermal-hal
     restart vendor.thermal-hal
 
 service vendor.thermal-hal /vendor/bin/hw/android.hardware.thermal-service.mediatek
+    interface aidl android.hardware.thermal.IThermal/default
     class hal
     user system
     group system
