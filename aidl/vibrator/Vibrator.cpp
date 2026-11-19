@@ -108,8 +108,11 @@ ndk::ScopedAStatus Vibrator::setAmplitude(float amplitude) {
     int32_t intensity;
 #endif
 
-    if (amplitude <= 0.0f || amplitude > 1.0f)
+    if (amplitude == -1.0f) {
+        amplitude = 1.0f;
+    } else if (amplitude <= 0.0f || amplitude > 1.0f) {
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_ILLEGAL_ARGUMENT));
+    }
 
 #ifdef VIBRATOR_SUPPORTS_EFFECTS
     LOG(VERBOSE) << "Setting amplitude: " << amplitude;
